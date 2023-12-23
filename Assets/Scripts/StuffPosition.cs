@@ -5,11 +5,11 @@ using UnityEngine;
 public class StuffPosition : MonoBehaviour
 {
     public Player player;
-    [SerializeField] float x;
-    [SerializeField] float y;
+    [SerializeField] public float x = 0.04f;
+    [SerializeField] public float y = 0.3f;
     void Update()
     {
         var p = player.transform.position;
-        transform.position = new Vector2(p.x + 0.04f, p.y + 0.3f);
+        transform.position = new Vector3(p.x + x, p.y + y, 0);
     }
 }

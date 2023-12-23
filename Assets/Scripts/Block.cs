@@ -5,7 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public int hp = 3;
-    public int ID = 0;
+    public int id = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

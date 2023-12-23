@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-        //пока не удалять- надо проверить потом как работает с нормальной текстурой
+        //пока не удалять- надо проверить потом как работает с нормальной текстурой снаряда
         //если будут поворачиваться нормально, то можно удалять
 
         //Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
