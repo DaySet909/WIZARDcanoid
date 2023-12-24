@@ -9,14 +9,22 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.CompareTag("Ball"))
+        {
         hp--;
-        if (hp <= 0)
-            HitBrick();
+        HitBrick();
+        }
     }
 
     void HitBrick ()
     {
-        Destroy(gameObject);
+        if (hp <= 0)
+            Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        HitBrick();
     }
 
 }

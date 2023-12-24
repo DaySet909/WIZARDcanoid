@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public KeyCode moveJump = KeyCode.Space;
     private Rigidbody2D rb2d;
     public GameObject bullet;
+    public GameObject [] brickArray;
     public int jumpCount = 0;
     public int jumpMax = 1;
     public int healthHero = 1;
@@ -43,13 +44,14 @@ public class Player : MonoBehaviour
             
         if (collision.collider.CompareTag("Ball"))
         DeathOfPlayer();
-
     }
 
     void DeathOfPlayer ()
     {
-
+        Instantiate(brickArray[Random.Range(0, brickArray.Length)],transform.position + new Vector3(),Quaternion.identity);
         rb2d.velocity = Vector2.zero;
         transform.position = Vector2.zero;
+
+
     }
 }
