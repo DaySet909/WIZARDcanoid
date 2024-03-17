@@ -17,5 +17,10 @@ public class Gun : MonoBehaviour
         {
             Instantiate(bullet, shotPoint.position, transform.rotation);
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+
+        }
     }
 }

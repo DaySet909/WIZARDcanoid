@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     public int hp = 3;
     public int id = 0;
+    public int multieplue = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -39,19 +39,17 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.collider.CompareTag("Ground") && jumpCount < jumpMax)
-            jumpCount++;   
-            
+            jumpCount++;
+
         if (collision.collider.CompareTag("Ball"))
-        DeathOfPlayer();
+            DeathOfPlayer();
     }
 
     void DeathOfPlayer ()
     {
         Instantiate(brickArray[Random.Range(0, brickArray.Length)],transform.position + new Vector3(),Quaternion.identity);
-        rb2d.velocity = Vector2.zero;
-        transform.position = Vector2.zero;
-
-
+        //rb2d.AddForce(new Vector2(Random.Range(100f, 700f), Random.Range(100f, 200f)), ForceMode2D.Impulse);
     }
 }

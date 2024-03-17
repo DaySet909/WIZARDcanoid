@@ -4,11 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
-{
+{    
+    //это логика каждого отдельно взятого шара
+
+    [SerializeField] int hitToCollision = 10;
     float speed = 20f;
     private Rigidbody2D body;
-    int hitToCollision = 0;
     public Rigidbody2D rb;
+
 
     void Start()
     {
@@ -24,13 +27,18 @@ public class Ball : MonoBehaviour
         //transform.rotation = Quaternion.Euler(0, 0, rotateZ - 90);
 
         rb.velocity = transform.up * speed;
-}
+    }
+
+    private void Update()
+    {
+        
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        hitToCollision++;
-        if (hitToCollision == 10)
+        hitToCollision--;
+        if (hitToCollision == 0)
             Destroy(gameObject);
     }
 }

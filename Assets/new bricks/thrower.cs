@@ -14,9 +14,9 @@ public class thrower : MonoBehaviour
 
     void Update()
     {
-        var brick = GameObject.FindWithTag("brickMassive");
-        Vector3 vector3 = new Vector3.;
-        Instantiate(brick, vector3, Quaternion.identity );
+        //var brick = GameObject.FindWithTag("brickMassive");
+        //Vector3 vector3 = new Vector3.;
+        //Instantiate(brick, vector3, Quaternion.identity );
 
     }
 }
