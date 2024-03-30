@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float jump = 150f;
+    
+  
     public KeyCode moveLeft = KeyCode.A;
     public KeyCode moveRight = KeyCode.D;
     public KeyCode moveJump = KeyCode.Space;
+
     private Rigidbody2D rb2d;
     public GameObject bullet;
     public GameObject [] brickArray;
-    public int jumpCount = 0;
+
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float jump = 150f;
+    [SerializeField] public int jumpCount = 0;
     public int jumpMax = 1;
     public int healthHero = 1;
+    public int death = 0;
 
     void Start()
     {
@@ -40,7 +45,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.collider.CompareTag("Ground") && jumpCount < jumpMax)
+        if (collision.collider && jumpCount < jumpMax)
             jumpCount++;
 
         if (collision.collider.CompareTag("Ball"))
@@ -49,6 +54,7 @@ public class Player : MonoBehaviour
 
     void DeathOfPlayer ()
     {
+        death += 1;
         Instantiate(brickArray[Random.Range(0, brickArray.Length)],transform.position + new Vector3(),Quaternion.identity);
         //rb2d.AddForce(new Vector2(Random.Range(100f, 700f), Random.Range(100f, 200f)), ForceMode2D.Impulse);
     }

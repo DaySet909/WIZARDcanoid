@@ -4,19 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
-{    
+{
     //это логика каждого отдельно взятого шара
-
-    [SerializeField] int hitToCollision = 10;
+    [SerializeField] public int hitToCollision = 10;
     float speed = 20f;
-    private Rigidbody2D body;
     public Rigidbody2D rb;
 
 
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
-
         rb = GetComponent<Rigidbody2D>();
 
         //пока не удалять- надо проверить потом как работает с нормальной текстурой снаряда
